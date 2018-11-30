@@ -1,5 +1,6 @@
 package com.example.mathemaking;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -17,9 +18,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class RegistrationActivity extends AppCompatActivity implements View.OnClickListener{
     private FirebaseAuth firebaseAuth;
+    private FirebaseUser user;
     private EditText etUsername, etPassword;
     private CheckBox checkBox;
     private Button btnRegister;
@@ -53,6 +56,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         btnRegister = (Button)findViewById(R.id.btn_reg);
         progressDialog = new ProgressDialog(this);
         firebaseAuth = FirebaseAuth.getInstance();
+        user = firebaseAuth.getCurrentUser();
     }
 
     @Override
@@ -67,7 +71,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         String nameError = "Name field cannot be empty";
         String emailError = "Email field cannot be empty";
         String passwordError = "Password field cannot be empty";
-        String progressMessage = "Registration underway...";
+        final String progressMessage = "Registration underway...";
         Context context = getApplicationContext();
 
         String username, password;
@@ -86,24 +90,21 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         }
 
         /*Straight to Firebase*/
-        progressDialog.setTitle("Registering user");
-        progressDialog.setMessage(progressMessage);
-        progressDialog.show();
-        firebaseAuth.createUserWithEmailAndPassword(username,password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+        firebaseAuth.signInWithEmailAndPassword(username,password)
+                .addOnCompleteListener((Activity) getApplicationContext(), new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+
                         progressDialog.dismiss();
-                        if(task.isSuccessful()) {
-                            Toast.makeText(getApplicationContext(),
-                                    "Successfully Registered",
-                                    Toast.LENGTH_SHORT).show();
+                        if(task.isSuccessful()){
+                            /*Start Journal Activity*/
                             Intent intent = new Intent(getApplicationContext(),
                                     MainActivity.class);
                             startActivity(intent);
+
                         }else{
                             Toast.makeText(getApplicationContext(),
-                                    "Could not register, Please try again",
+                                    "Could not Login...",
                                     Toast.LENGTH_SHORT).show();
                         }
                     }
