@@ -19,7 +19,6 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/digital_trading_introduction"
         android:textColor="@android:color/black"
         android:textSize="15sp"/>
 
@@ -54,7 +53,6 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/digital_axiom_one"
                         android:textSize="16sp"
                         android:textColor="@android:color/black"/>
                 </TableRow>
@@ -69,7 +67,6 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/digital_axiom_two"
                         android:textSize="16sp"
                         android:textColor="@android:color/black"/>
                 </TableRow>
@@ -84,7 +81,6 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/digital_axiom_three"
                         android:textSize="16sp"
                         android:textColor="@android:color/black"/>
                 </TableRow>

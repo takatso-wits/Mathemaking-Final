@@ -51,7 +51,6 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     public void onClick(View v) {
         if(v == btnLogin){
             doLogin();
-
         }
         if(v == tv){
             Intent intent = new Intent(getApplicationContext(), RegistrationActivity.class);

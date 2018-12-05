@@ -7,13 +7,19 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mathemaking.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
     Button exam, progress;
+    TextView greeting;
+    FirebaseUser user;
+    FirebaseAuth mAuth;
 
 
     @Override
@@ -21,7 +27,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        mAuth = FirebaseAuth.getInstance();
+        user = mAuth.getCurrentUser();
+        greeting = (TextView)findViewById(R.id.tvGreeting);
+        greeting.setText(user.getEmail().toString());
         exam = findViewById(R.id.btnExam);
         progress = findViewById(R.id.btnProgress);
 

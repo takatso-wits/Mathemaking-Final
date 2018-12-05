@@ -53,7 +53,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:fontFamily="serif"
-        android:background="@android:color/holo_blue_bright"
+        android:background="@android:color/holo_orange_dark"
         android:text="Sign-in" />
 
     <TextView

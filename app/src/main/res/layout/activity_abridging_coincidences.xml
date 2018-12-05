@@ -5,11 +5,12 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DecimalsNegativeNthDegree">
+    tools:context=".AbridgingCoincidences">
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/chapter_eight"
+        android:text="@string/chapter_nine"
         android:textColor="#837d4e"
         android:textSize="40sp"
         android:layout_gravity="center"
@@ -26,14 +27,22 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-
                 android:textColor="@android:color/black"
-                android:textSize="15sp"/>
+
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:textSize="16sp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:textSize="16sp"/>
 
         </LinearLayout>
     </ScrollView>
+
 
 
 
