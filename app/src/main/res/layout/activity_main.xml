@@ -26,36 +26,59 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_gravity="center"/>
-
-
-    <Button
-        android:id="@+id/btnExam"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:textAllCaps="false"
-        android:textColor="@android:color/white"
-        android:background="@android:color/holo_blue_dark"
-        android:text="Exam" />
-
-    <Button
-        android:id="@+id/btnProgress"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:textColor="@android:color/white"
-        android:textAllCaps="false"
-        android:background="@android:color/holo_blue_dark"
-        android:text="View Your Progress" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tvGreeting"
         android:textSize="20sp"
         android:textColor="@android:color/black"
-        android:text="Greeting"
+        android:text="Greetings"
         android:layout_gravity="center"
         />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="vertical">
+
+           <Button
+               android:id="@+id/btnExam"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="20dp"
+               android:textAllCaps="false"
+               android:textColor="@android:color/white"
+               android:background="@android:color/holo_blue_dark"
+               android:text="Exam" />
+
+           <Button
+               android:id="@+id/btnProgress"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="20dp"
+               android:textColor="@android:color/white"
+               android:textAllCaps="false"
+               android:background="@android:color/holo_blue_dark"
+               android:text="View Your Progress" />
+
+           <Button
+               android:id="@+id/btnSignOut"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="20dp"
+               android:textColor="@android:color/white"
+               android:textAllCaps="false"
+               android:background="@android:color/holo_blue_dark"
+               android:text="Sign-out" />
+
+       </LinearLayout>
+    </ScrollView>
+
+
+
 
 </LinearLayout>

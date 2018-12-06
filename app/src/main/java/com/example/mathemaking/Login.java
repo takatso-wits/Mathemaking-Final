@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -45,6 +46,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         etPassword = (EditText)findViewById(R.id.et_password);
         progressDialog = new ProgressDialog(this);
         firebaseAuth = FirebaseAuth.getInstance();
+
     }
 
     @Override
@@ -85,8 +87,9 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+                        progressDialog.dismiss();
                         if(task.isComplete()){
-                            progressDialog.dismiss();
+
                             /*Start Journal Activity*/
                             Intent intent = new Intent(getApplicationContext(),
                                     MainActivity.class);

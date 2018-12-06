@@ -16,8 +16,11 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthActionCodeException;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
 
 public class RegistrationActivity extends AppCompatActivity implements View.OnClickListener{
@@ -40,7 +43,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
 
         /*Check whether the user is already logged in*/
         if(firebaseAuth.getCurrentUser() != null){
-            /*Start the Journal activity*/
+
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);
         }
@@ -68,7 +71,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
 
     private void doRegistration() {
 
-        String nameError = "Name field cannot be empty";
+        String checkBoxError = "Please read the terms and conditions.";
         String emailError = "Email field cannot be empty";
         String passwordError = "Password field cannot be empty";
         final String progressMessage = "Registration underway...";
@@ -89,26 +92,35 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
             return;
         }
 
+        if(!(checkBox.isChecked())){
+            Toast.makeText(this,checkBoxError,Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         /*Straight to Firebase*/
-        firebaseAuth.signInWithEmailAndPassword(username,password)
-                .addOnCompleteListener((Activity) getApplicationContext(), new OnCompleteListener<AuthResult>() {
+        progressDialog.setTitle("Registration");
+        progressDialog.setMessage(progressMessage);
+
+        firebaseAuth.createUserWithEmailAndPassword(username, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+                            progressDialog.dismiss();
+                            if(task.isSuccessful()){
+                                finish();
+                                startActivity(new Intent(getApplicationContext(),
+                                        MainActivity.class));
 
-                        progressDialog.dismiss();
-                        if(task.isSuccessful()){
-                            /*Start Journal Activity*/
-                            Intent intent = new Intent(getApplicationContext(),
-                                    MainActivity.class);
-                            startActivity(intent);
-
-                        }else{
-                            Toast.makeText(getApplicationContext(),
-                                    "Could not Login...",
-                                    Toast.LENGTH_SHORT).show();
-                        }
+                            }else{
+                                if(task.getException() instanceof FirebaseAuthUserCollisionException){
+                                    Toast.makeText(getApplicationContext(),
+                                            "Already Registered",
+                                            Toast.LENGTH_SHORT).show();
+                                }
+                            }
                     }
                 });
+
     }
 
 

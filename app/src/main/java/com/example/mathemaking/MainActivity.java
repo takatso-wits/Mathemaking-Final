@@ -14,9 +14,9 @@ import com.example.mathemaking.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button exam, progress;
+    Button exam, progress, signOut;
     TextView greeting;
     FirebaseUser user;
     FirebaseAuth mAuth;
@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
         greeting.setText(user.getEmail().toString());
         exam = findViewById(R.id.btnExam);
         progress = findViewById(R.id.btnProgress);
+        signOut = (Button)findViewById(R.id.btnSignOut);
+        signOut.setOnClickListener(this);
 
         exam.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,4 +107,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onClick(View v) {
+        if(v == signOut){
+            mAuth.signOut();
+            startActivity(new Intent(getApplicationContext(),
+                    Login.class));
+        }
+    }
 }
