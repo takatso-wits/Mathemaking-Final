@@ -107,9 +107,9 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                     public void onComplete(@NonNull Task<AuthResult> task) {
                             progressDialog.dismiss();
                             if(task.isSuccessful()){
-                                finish();
-                                startActivity(new Intent(getApplicationContext(),
-                                        MainActivity.class));
+                                Intent intent = new Intent(RegistrationActivity.this, MainActivity.class);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                startActivity(intent);
 
                             }else{
                                 if(task.getException() instanceof FirebaseAuthUserCollisionException){

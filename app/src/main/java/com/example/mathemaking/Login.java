@@ -88,18 +88,18 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         progressDialog.dismiss();
-                        if(task.isComplete()){
-
-                            /*Start Journal Activity*/
-                            Intent intent = new Intent(getApplicationContext(),
-                                    MainActivity.class);
+                        if(task.isSuccessful()){
+                            Intent intent = new Intent(Login.this, MainActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(intent);
+
                         }else{
                             Toast.makeText(getApplicationContext(),
-                                    "Could not Login...",
+                                    task.getException().getMessage(),
                                     Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
+
     }
 }
