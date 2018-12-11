@@ -1,5 +1,7 @@
 package com.example.mathemaking;
 
+import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -19,6 +22,7 @@ public class ResetPassoword extends AppCompatActivity {
     Button send;
     EditText email;
     String userEmail;
+    final Context context = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +38,8 @@ public class ResetPassoword extends AppCompatActivity {
             public void onClick(View view) {
                 userEmail = email.getText().toString().trim();
 
+
+
                 /*Reset the user password*/
                 firebaseAuth.sendPasswordResetEmail(userEmail)
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -43,6 +49,22 @@ public class ResetPassoword extends AppCompatActivity {
                                 if(task.isSuccessful()){
                                     Toast.makeText(getApplicationContext(),task.getException().getMessage(),Toast.LENGTH_SHORT).show();
                                     startActivity(intent);
+                                }else{
+                                    final Dialog dialog = new Dialog(context);
+                                    dialog.setContentView(R.layout.custom);
+                                    final TextView tv = (TextView) dialog.findViewById(R.id.custom_text);
+                                    dialog.setTitle("Invalid Email");
+                                    tv.setText("What Should come here?");
+                                    Button dBtn = (Button) dialog.findViewById(R.id.dialogButtonOK);
+                                    dBtn.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View view) {
+                                            dialog.dismiss();
+                                            startActivity(new Intent(ResetPassoword.this, Login.class));
+                                        }
+                                    });
+                                    dialog.show();
+
                                 }
                             }
                         });

@@ -25,7 +25,6 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class RegistrationActivity extends AppCompatActivity implements View.OnClickListener{
     private FirebaseAuth firebaseAuth;
-    private FirebaseUser user;
     private EditText etUsername, etPassword;
     private CheckBox checkBox;
     private Button btnRegister;
@@ -52,6 +51,10 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
 
     }
 
+    private void sendVerificationEmail() {
+
+    }
+
     private void initialize() {
         etUsername = (EditText)findViewById(R.id.et_username);
         etPassword = (EditText)findViewById(R.id.et_password);
@@ -59,7 +62,6 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         btnRegister = (Button)findViewById(R.id.btn_reg);
         progressDialog = new ProgressDialog(this);
         firebaseAuth = FirebaseAuth.getInstance();
-        user = firebaseAuth.getCurrentUser();
     }
 
     @Override
