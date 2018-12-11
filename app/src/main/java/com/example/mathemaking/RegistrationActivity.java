@@ -116,6 +116,10 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                                     Toast.makeText(getApplicationContext(),
                                             "Already Registered",
                                             Toast.LENGTH_SHORT).show();
+                                }else{
+                                    Toast.makeText(getApplicationContext(),
+                                            task.getException().getMessage(),
+                                            Toast.LENGTH_SHORT).show();
                                 }
                             }
                     }
