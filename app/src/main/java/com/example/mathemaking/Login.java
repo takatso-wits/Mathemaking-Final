@@ -22,7 +22,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class Login extends AppCompatActivity implements View.OnClickListener {
 
     private Button btnLogin;
-    private TextView tv;
+    private TextView tv, tv_resetPassword;
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
     private EditText etUsername, etPassword;
@@ -37,11 +37,13 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         init();
         btnLogin.setOnClickListener(this);
         tv.setOnClickListener(this);
+        tv_resetPassword.setOnClickListener(this);
     }
 
     private void init() {
         btnLogin = (Button) findViewById(R.id.btn_login);
         tv = (TextView)findViewById(R.id.tv_login);
+        tv_resetPassword = (TextView) findViewById(R.id.tv_resetPassword);
         etUsername = (EditText)findViewById(R.id.et_username);
         etPassword = (EditText)findViewById(R.id.et_password);
         progressDialog = new ProgressDialog(this);
@@ -58,6 +60,9 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             Intent intent = new Intent(getApplicationContext(), RegistrationActivity.class);
             startActivity(intent);
 
+        }
+        if(v == tv_resetPassword){
+            startActivity(new Intent(Login.this, ResetPassoword.class));
         }
     }
 

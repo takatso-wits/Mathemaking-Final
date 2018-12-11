@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.mathemaking">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -20,7 +21,7 @@
         <activity android:name=".MainActivity" />
         <activity
             android:name=".RegistrationActivity"
-            android:parentActivityName=".Login"/>
+            android:parentActivityName=".Login" />
         <activity
             android:name=".AlphieCombinations"
             android:label="@string/chapter_one"
@@ -80,7 +81,8 @@
         <activity android:name=".SumDigitalNotes" />
         <activity android:name=".SumDigitalExample" />
         <activity android:name=".SumDigitalExercise" />
-        <activity android:name=".SumDigitalTest" ></activity>
+        <activity android:name=".SumDigitalTest" />
+        <activity android:name=".ResetPassoword"></activity>
     </application>
 
 </manifest>
