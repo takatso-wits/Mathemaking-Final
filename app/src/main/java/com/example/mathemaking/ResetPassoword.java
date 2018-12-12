@@ -1,7 +1,9 @@
 package com.example.mathemaking;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -30,8 +32,8 @@ public class ResetPassoword extends AppCompatActivity {
         setContentView(R.layout.activity_reset_passoword);
 
         firebaseAuth = FirebaseAuth.getInstance();
-        send = (Button) findViewById(R.id.btn_ResetPassword);
-        email = (EditText)findViewById(R.id.ed_email);
+        send = findViewById(R.id.btn_ResetPassword);
+        email = findViewById(R.id.ed_email);
 
         send.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,24 +48,36 @@ public class ResetPassoword extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 Intent intent = new Intent(ResetPassoword.this, Login.class);
+                                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
                                 if(task.isSuccessful()){
-                                    Toast.makeText(getApplicationContext(),task.getException().getMessage(),Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(),"Check your email",Toast.LENGTH_SHORT).show();
+                                    alertDialogBuilder.setTitle("Password Reset Success");
+                                    alertDialogBuilder
+                                            .setMessage(task.getException().getMessage())
+                                            .setCancelable(false)
+                                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                                @Override
+                                                public void onClick(DialogInterface dialogInterface, int i) {
+                                                    startActivity(new Intent(ResetPassoword.this,
+                                                            RegistrationActivity.class));
+                                                    ResetPassoword.this.finish();
+                                                }
+                                            });
                                     startActivity(intent);
                                 }else{
-                                    final Dialog dialog = new Dialog(context);
-                                    dialog.setContentView(R.layout.custom);
-                                    final TextView tv = (TextView) dialog.findViewById(R.id.custom_text);
-                                    dialog.setTitle("Invalid Email");
-                                    tv.setText("What Should come here?");
-                                    Button dBtn = (Button) dialog.findViewById(R.id.dialogButtonOK);
-                                    dBtn.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View view) {
-                                            dialog.dismiss();
-                                            startActivity(new Intent(ResetPassoword.this, Login.class));
-                                        }
-                                    });
-                                    dialog.show();
+
+                                    alertDialogBuilder.setTitle("Invalid Email");
+                                    alertDialogBuilder
+                                            .setMessage(task.getException().getMessage())
+                                            .setCancelable(false)
+                                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                                @Override
+                                                public void onClick(DialogInterface dialogInterface, int i) {
+                                                    startActivity(new Intent(ResetPassoword.this,
+                                                            RegistrationActivity.class));
+                                                    ResetPassoword.this.finish();
+                                                }
+                                            });
 
                                 }
                             }

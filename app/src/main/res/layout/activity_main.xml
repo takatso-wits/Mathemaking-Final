@@ -8,72 +8,112 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:fontFamily="Calibri"
-        android:text="@string/welcome_message"
-        android:textColor="@android:color/black"
-        android:textSize="50dp" />
-
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@mipmap/ic_launcher"
-        android:layout_marginTop="50dp"
+        android:background="@drawable/logo"
+        android:layout_marginTop="100dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
         android:layout_gravity="center"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tvGreeting"
-        android:textSize="20sp"
-        android:textColor="@android:color/black"
-        android:text="Greetings"
-        android:layout_gravity="center"
-        />
+
 
     <ScrollView
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
        <LinearLayout
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
+           android:background="#000000"
            android:orientation="vertical">
 
            <Button
-               android:id="@+id/btnExam"
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
-               android:layout_marginTop="20dp"
-               android:textAllCaps="false"
-               android:textColor="@android:color/white"
-               android:background="@android:color/holo_blue_dark"
-               android:text="Exam" />
-
+               android:background="@android:color/white"
+               android:textColor="@color/colorAccent"
+               android:text="@string/chapter_one"
+               android:id="@+id/btn1"
+               android:layout_marginBottom="3dp"
+               />
            <Button
-               android:id="@+id/btnProgress"
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
-               android:layout_marginTop="20dp"
-               android:textColor="@android:color/white"
-               android:textAllCaps="false"
-               android:background="@android:color/holo_blue_dark"
-               android:text="View Your Progress" />
-
+               android:background="@android:color/white"
+               android:textColor="@color/colorAccent"
+               android:text="@string/chapter_two"
+               android:id="@+id/btn2"
+               android:layout_marginBottom="3dp"
+               />
            <Button
-               android:id="@+id/btnSignOut"
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
-               android:layout_marginTop="20dp"
-               android:textColor="@android:color/white"
-               android:textAllCaps="false"
-               android:background="@android:color/holo_blue_dark"
-               android:text="Sign-out" />
+               android:background="@android:color/white"
+               android:textColor="@color/colorAccent"
+               android:text="@string/chapter_three"
+               android:id="@+id/btn3"
+               android:layout_marginBottom="3dp"
+               />
+           <Button
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:background="@android:color/white"
+               android:textColor="@color/colorAccent"
+               android:text="@string/chapter_four"
+               android:id="@+id/btn4"
+               android:layout_marginBottom="3dp"
+               />
+           <Button
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:background="@android:color/white"
+               android:textColor="@color/colorAccent"
+               android:text="@string/chapter_five"
+               android:id="@+id/btn5"
+               android:layout_marginBottom="3dp"
+               />
+           <Button
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:background="@android:color/white"
+               android:textColor="@color/colorAccent"
+               android:text="@string/chapter_six"
+               android:id="@+id/btn6"
+               android:layout_marginBottom="3dp"
+               />
+           <Button
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:background="@android:color/white"
+               android:textColor="@color/colorAccent"
+               android:text="@string/chapter_seven"
+               android:id="@+id/btn7"
+               android:layout_marginBottom="3dp"
+               />
+           <Button
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:background="@android:color/white"
+               android:textColor="@color/colorAccent"
+               android:text="@string/chapter_eight"
+               android:id="@+id/btn8"
+               android:layout_marginBottom="3dp"
+               />
+           <Button
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:background="@android:color/white"
+               android:textColor="@color/colorAccent"
+               android:text="@string/chapter_nine"
+               android:id="@+id/btn9"
+               android:layout_marginBottom="3dp"
+               />
+
+
+
 
        </LinearLayout>
     </ScrollView>

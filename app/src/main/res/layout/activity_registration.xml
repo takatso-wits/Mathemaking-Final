@@ -12,27 +12,25 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@mipmap/ic_launcher_round"
+        android:background="@drawable/logo"
         android:layout_gravity="center"
         android:layout_marginTop="70dp"
         />
     <EditText
-        android:layout_width="match_parent"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:id="@+id/et_username"
         android:hint="Username"
         android:inputType="textEmailAddress"
-        android:textColorHint="@android:color/white"
-        android:textColor="@android:color/white"
-        android:background="@android:color/holo_blue_bright"
-        android:fontFamily="serif"
+        android:textColorHint="@android:color/black"
+        android:textColor="@android:color/black"
         android:layout_gravity="center"
         android:gravity="center"
         android:layout_marginTop="20dp"
 
         />
     <EditText
-        android:layout_width="match_parent"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:id="@+id/et_password"
         android:inputType="textPassword"
@@ -41,9 +39,9 @@
         android:gravity="center"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:textColorHint="@android:color/white"
-        android:textColor="@android:color/white"
-        android:background="@android:color/holo_blue_bright"
+        android:textColorHint="@android:color/black"
+        android:textColor="@android:color/black"
+
         />
     <CheckBox
         android:layout_height="wrap_content"
@@ -51,9 +49,10 @@
         android:id="@+id/checkBx"
         android:layout_gravity="center"
         android:text="Accept our Terms and Conditions"
+        android:layout_marginTop="20dp"
         />
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btn_reg"
         android:layout_gravity="center"

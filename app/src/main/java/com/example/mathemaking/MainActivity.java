@@ -16,8 +16,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button exam, progress, signOut;
-    TextView greeting;
+    Button btn1, btn2,btn3,btn4,btn5,btn6,btn7,btn8, btn9;
     FirebaseUser user;
     FirebaseAuth mAuth;
 
@@ -29,26 +28,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
-        greeting = (TextView)findViewById(R.id.tvGreeting);
-        greeting.setText(user.getEmail().toString());
-        exam = findViewById(R.id.btnExam);
-        progress = findViewById(R.id.btnProgress);
-        signOut = (Button)findViewById(R.id.btnSignOut);
-        signOut.setOnClickListener(this);
 
-        exam.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),"Exam not ready.",Toast.LENGTH_SHORT).show();
-            }
-        });
-        progress.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),"0% Complete",Toast.LENGTH_SHORT).show();
-            }
-        });
+        btn1 = findViewById(R.id.btn1);
+        btn2 = findViewById(R.id.btn2);
+        btn3 = findViewById(R.id.btn3);
+        btn4 = findViewById(R.id.btn4);
+        btn5 = findViewById(R.id.btn5);
+        btn6 = findViewById(R.id.btn6);
+        btn7 = findViewById(R.id.btn7);
+        btn8 = findViewById(R.id.btn8);
+        btn9 = findViewById(R.id.btn9);
 
+
+
+        /*Set the onClickListeners for all the buttons*/
+        btn1.setOnClickListener(this);
+        btn2.setOnClickListener(this);
+        btn3.setOnClickListener(this);
+        btn4.setOnClickListener(this);
+        btn5.setOnClickListener(this);
+        btn6.setOnClickListener(this);
+        btn7.setOnClickListener(this);
+        btn8.setOnClickListener(this);
+        btn9.setOnClickListener(this);
 
     }
 
@@ -64,43 +66,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Intent intent;
 
         switch (item.getItemId()){
-            case R.id.topic1:
-                finish();
-                intent = new Intent(getApplicationContext(), AlphieCombinations.class);
-                startActivity(intent);
-                return true;
-            case R.id.topic2:
-                intent = new Intent(getApplicationContext(), Derivativish.class);
-                startActivity(intent);
-                return true;
-            case R.id.topic3:
-                intent = new Intent(getApplicationContext(), DigitalTrading.class);
-                startActivity(intent);
-                return true;
-            case R.id.topic4:
-                intent = new Intent(getApplicationContext(), SumsDigitalTrading.class);
-                startActivity(intent);
-                return true;
-            case R.id.topic5:
-                intent = new Intent(getApplicationContext(), Ncanyana.class);
-                startActivity(intent);
-                return true;
-            case R.id.topic6:
-                intent = new Intent(getApplicationContext(), SpecialDecimals.class);
-                startActivity(intent);
-                return true;
-            case R.id.topic7:
-                intent = new Intent(getApplicationContext(), DecimalsNthDegree.class);
-                startActivity(intent);
-                return true;
-            case R.id.topic8:
-                intent = new Intent(getApplicationContext(), DecimalsNegativeNthDegree.class);
-                startActivity(intent);
-                return true;
-            case R.id.topic9:
-                intent = new Intent(getApplicationContext(), AbridgingCoincidences.class);
-                startActivity(intent);
-                return true;
+            case R.id.menu_exam:
+                Toast.makeText(getApplicationContext(),"Exam not ready.",Toast.LENGTH_SHORT).show();
+
+            case R.id.menu_view_progress:
+                Toast.makeText(getApplicationContext(),"0% Complete",Toast.LENGTH_SHORT).show();
+
+            case R.id.menu_sign_out:
+                mAuth.signOut();
+                startActivity(new Intent(getApplicationContext(), Login.class));
+
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -108,11 +83,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
-    public void onClick(View v) {
-        if(v == signOut){
-            mAuth.signOut();
-            startActivity(new Intent(getApplicationContext(),
-                    Login.class));
-        }
+    public void onClick(View view) {
+
+        if(view == btn1)
+            startActivity(new Intent(MainActivity.this, AlphieCombinations.class));
+
+        if(view == btn2)
+            startActivity(new Intent(MainActivity.this, Derivativish.class));
+
+        if(view == btn3)
+            startActivity(new Intent(MainActivity.this, DigitalTrading.class));
+
+        if(view == btn4)
+            startActivity(new Intent(MainActivity.this, SumsDigitalTrading.class));
+
+        if(view == btn5)
+            startActivity(new Intent(MainActivity.this, Ncanyana.class));
+
+        if(view == btn6)
+            startActivity(new Intent(MainActivity.this, SpecialDecimals.class));
+
+        if(view == btn7)
+            startActivity(new Intent(MainActivity.this, DecimalsNthDegree.class));
+
+        if(view == btn8)
+            startActivity(new Intent(MainActivity.this, DecimalsNegativeNthDegree.class));
+
+        if(view == btn9)
+            startActivity(new Intent(MainActivity.this, AbridgingCoincidences.class));
+
     }
 }
