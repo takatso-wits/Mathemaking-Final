@@ -62,7 +62,10 @@
             android:name=".AbridgingCoincidences"
             android:label="@string/chapter_nine"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".AlphieNotes" />
+        <activity android:name=".AlphieNotes"
+            android:label="Alphie Combinations Notes"
+            android:parentActivityName=".AlphieCombinations"
+            />
         <activity android:name=".AlphieExamples" />
         <activity android:name=".AlphieOne" />
         <activity android:name=".AlphieTwo" />

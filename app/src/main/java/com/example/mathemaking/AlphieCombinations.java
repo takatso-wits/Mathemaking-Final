@@ -13,10 +13,10 @@ import android.widget.ScrollView;
 import android.widget.Toast;
 import android.widget.VideoView;
 
-public class AlphieCombinations extends AppCompatActivity {
+public class AlphieCombinations extends AppCompatActivity implements View.OnClickListener {
 
     VideoView alphieVideo;
-    Button alphieDone;
+    Button alphieDone, readMode;
     ScrollView scrollView;
     MediaController mediaController;
 
@@ -36,6 +36,7 @@ public class AlphieCombinations extends AppCompatActivity {
 
         alphieVideo = findViewById(R.id.vid_alphie_intro);
         alphieDone = findViewById(R.id.btn_alphieDone);
+        readMode = findViewById(R.id.btnReadMode);
         scrollView = findViewById(R.id.scrollView2);
         mediaController = new MediaController(this);
 
@@ -45,8 +46,21 @@ public class AlphieCombinations extends AppCompatActivity {
         mediaController.setAnchorView(alphieVideo);
         alphieVideo.start();
 
+        readMode.setOnClickListener(this);
+        alphieDone.setOnClickListener(this);
+
 
     }
 
 
+    @Override
+    public void onClick(View view) {
+        if(view == alphieDone){
+            AlphieCombinations.this.finish();
+            startActivity(new Intent(AlphieCombinations.this, Derivativish.class));
+        }
+        if(view == readMode){
+            startActivity(new Intent(AlphieCombinations.this, AlphieNotes.class));
+        }
+    }
 }

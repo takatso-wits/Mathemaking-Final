@@ -71,6 +71,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.menu_sign_out:
                 mAuth.signOut();
+                MainActivity.this.finish();
                 startActivity(new Intent(getApplicationContext(), Login.class));
 
             default:
