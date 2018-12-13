@@ -41,11 +41,11 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     }
 
     private void init() {
-        btnLogin = (Button) findViewById(R.id.btn_login);
-        tv = (TextView)findViewById(R.id.tv_login);
-        tv_resetPassword = (TextView) findViewById(R.id.tv_resetPassword);
-        etUsername = (EditText)findViewById(R.id.et_username);
-        etPassword = (EditText)findViewById(R.id.et_password);
+        btnLogin = findViewById(R.id.btn_login);
+        tv = findViewById(R.id.tv_login);
+        tv_resetPassword = findViewById(R.id.tv_resetPassword);
+        etUsername = findViewById(R.id.et_username);
+        etPassword = findViewById(R.id.et_password);
         progressDialog = new ProgressDialog(this);
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -75,11 +75,12 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         String  message = "Getting started...";
 
         if(TextUtils.isEmpty(username)){
-            Toast.makeText(context,emailError,Toast.LENGTH_SHORT).show();
+            etUsername.setError(emailError);
             return;
         }
         if(TextUtils.isEmpty(password)){
-            Toast.makeText(context,passwordError,Toast.LENGTH_SHORT).show();
+            etPassword.setError(passwordError);
+
             return;
         }
 

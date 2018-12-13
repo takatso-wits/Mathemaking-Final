@@ -49,6 +49,7 @@
         android:id="@+id/checkBx"
         android:layout_gravity="center"
         android:text="Accept our Terms and Conditions"
+        android:contextClickable="true"
         android:layout_marginTop="20dp"
         />
     <Button

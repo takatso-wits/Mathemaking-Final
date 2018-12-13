@@ -37,17 +37,5 @@ public class AlphieExamples extends AppCompatActivity {
         Intent intent = new Intent(this,AlphieSix.class);
         startActivity(intent);
     }
-    public void startAlphieSeven(View view) {
-        Intent intent = new Intent(this,AlphieSeven.class);
-        startActivity(intent);
-    }
-    public void startAlphieEight(View view) {
-        Intent intent = new Intent(this,AlphieEight.class);
-        startActivity(intent);
-    }
-    public void startAlphieNine(View view) {
-        Intent intent = new Intent(this,AlphieNine.class);
-        startActivity(intent);
-    }
 
 }

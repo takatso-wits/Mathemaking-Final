@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -29,6 +30,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
     private CheckBox checkBox;
     private Button btnRegister;
     private ProgressDialog progressDialog;
+    private TextView terms;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,10 +58,11 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
     }
 
     private void initialize() {
-        etUsername = (EditText)findViewById(R.id.et_username);
-        etPassword = (EditText)findViewById(R.id.et_password);
-        checkBox = (CheckBox) findViewById(R.id.checkBx);
-        btnRegister = (Button)findViewById(R.id.btn_reg);
+        etUsername = findViewById(R.id.et_username);
+        etPassword = findViewById(R.id.et_password);
+        checkBox = findViewById(R.id.checkBx);
+        btnRegister = findViewById(R.id.btn_reg);
+
         progressDialog = new ProgressDialog(this);
         firebaseAuth = FirebaseAuth.getInstance();
     }
@@ -86,16 +89,16 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
 
         /*Validate input*/
         if(TextUtils.isEmpty(username)){
-            Toast.makeText(context,emailError,Toast.LENGTH_SHORT).show();
+            etUsername.setError(emailError);
             return;
         }
         if(TextUtils.isEmpty(password)){
-            Toast.makeText(context,passwordError,Toast.LENGTH_SHORT).show();
+            etPassword.setError(passwordError);
             return;
         }
 
         if(!(checkBox.isChecked())){
-            Toast.makeText(this,checkBoxError,Toast.LENGTH_SHORT).show();
+            checkBox.setError(checkBoxError);
             return;
         }
 

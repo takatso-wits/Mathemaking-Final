@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Login">
+        <activity android:name=".Login"
+            android:noHistory="true"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,10 +23,12 @@
         <activity android:name=".MainActivity" />
         <activity
             android:name=".RegistrationActivity"
+            android:noHistory="true"
             android:parentActivityName=".Login" />
         <activity
             android:name=".AlphieCombinations"
             android:label="@string/chapter_one"
+            android:configChanges="orientation|screenSize"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".Derivativish"
@@ -66,9 +70,6 @@
         <activity android:name=".AlphieFour" />
         <activity android:name=".AlphieFive" />
         <activity android:name=".AlphieSix" />
-        <activity android:name=".AlphieSeven" />
-        <activity android:name=".AlphieEight" />
-        <activity android:name=".AlphieNine" />
         <activity android:name=".AlphieTest" />
         <activity android:name=".AlphieExercise" />
         <activity android:name=".DevishNotes" />
@@ -82,7 +83,13 @@
         <activity android:name=".SumDigitalExample" />
         <activity android:name=".SumDigitalExercise" />
         <activity android:name=".SumDigitalTest" />
-        <activity android:name=".ResetPassoword"></activity>
+        <activity
+            android:name=".ResetPassoword"
+            android:label="Reset Password"
+            android:parentActivityName=".Login"
+            >
+
+        </activity>
     </application>
 
 </manifest>

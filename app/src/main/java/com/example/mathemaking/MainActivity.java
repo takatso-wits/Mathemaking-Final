@@ -39,9 +39,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn8 = findViewById(R.id.btn8);
         btn9 = findViewById(R.id.btn9);
 
-
-
-        /*Set the onClickListeners for all the buttons*/
         btn1.setOnClickListener(this);
         btn2.setOnClickListener(this);
         btn3.setOnClickListener(this);
