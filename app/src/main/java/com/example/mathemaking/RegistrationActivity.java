@@ -80,8 +80,6 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         String emailError = "Email field cannot be empty";
         String passwordError = "Password field cannot be empty";
         final String progressMessage = "Registration underway...";
-        Context context = getApplicationContext();
-
         String username, password;
 
         username = etUsername.getText().toString().trim();

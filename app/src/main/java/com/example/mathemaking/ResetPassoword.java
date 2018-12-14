@@ -24,7 +24,7 @@ public class ResetPassoword extends AppCompatActivity {
     Button send;
     EditText email;
     String userEmail;
-    final Context context = this;
+    final Context context = ResetPassoword.this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +63,6 @@ public class ResetPassoword extends AppCompatActivity {
                                                 public void onClick(DialogInterface dialogInterface, int i) {
                                                     startActivity(new Intent(ResetPassoword.this,
                                                             RegistrationActivity.class));
-                                                    ResetPassoword.this.finish();
                                                 }
                                             });
                                     startActivity(intent);
@@ -78,7 +77,6 @@ public class ResetPassoword extends AppCompatActivity {
                                                 public void onClick(DialogInterface dialogInterface, int i) {
                                                     startActivity(new Intent(ResetPassoword.this,
                                                             RegistrationActivity.class));
-                                                    ResetPassoword.this.finish();
                                                 }
                                             });
 

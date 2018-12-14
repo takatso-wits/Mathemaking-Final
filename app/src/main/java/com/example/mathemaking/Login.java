@@ -3,6 +3,7 @@ package com.example.mathemaking;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -94,16 +95,17 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         progressDialog.dismiss();
+
                         if(task.isSuccessful()){
-                            Intent intent = new Intent(Login.this, MainActivity.class);
-                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                            startActivity(intent);
+                            startActivity(new Intent(Login.this,MainActivity.class));
+                            Login.this.finish();
 
                         }else{
-                            Toast.makeText(getApplicationContext(),
+                            Toast.makeText(Login.this,
                                     task.getException().getMessage(),
-                                    Toast.LENGTH_SHORT).show();
+                                    Toast.LENGTH_LONG).show();
                         }
+
                     }
                 });
 

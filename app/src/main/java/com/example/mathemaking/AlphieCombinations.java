@@ -19,6 +19,7 @@ public class AlphieCombinations extends AppCompatActivity implements View.OnClic
     Button alphieDone, readMode;
     ScrollView scrollView;
     MediaController mediaController;
+    private String video;
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
@@ -39,8 +40,11 @@ public class AlphieCombinations extends AppCompatActivity implements View.OnClic
         readMode = findViewById(R.id.btnReadMode);
         scrollView = findViewById(R.id.scrollView2);
         mediaController = new MediaController(this);
+        video = "https://firebasestorage.googleapis.com/" +
+                "v0/b/mathemaking.appspot.com/o/3v5gb.mp4" +
+                "?alt=media&token=9a039fb3-ab3b-44bc-a1f9-07e9b9c8b963";
 
-        Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.alphie_intro);
+        Uri uri = Uri.parse(video);
         alphieVideo.setVideoURI(uri);
         alphieVideo.setMediaController(mediaController);
         mediaController.setAnchorView(alphieVideo);
@@ -56,8 +60,8 @@ public class AlphieCombinations extends AppCompatActivity implements View.OnClic
     @Override
     public void onClick(View view) {
         if(view == alphieDone){
-            AlphieCombinations.this.finish();
             startActivity(new Intent(AlphieCombinations.this, Derivativish.class));
+            AlphieCombinations.this.finish();
         }
         if(view == readMode){
             startActivity(new Intent(AlphieCombinations.this, AlphieNotes.class));

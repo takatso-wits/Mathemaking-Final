@@ -34,7 +34,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/et_password"
         android:inputType="textPassword"
-        android:fontFamily="serif"
         android:hint="Password"
         android:gravity="center"
         android:layout_gravity="center"
@@ -51,9 +50,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:fontFamily="serif"
+        android:textAllCaps="false"
         android:background="@android:color/holo_orange_dark"
-        android:text="Sign-in" />
+        android:text="Sign In" />
 
     <TableLayout
         android:layout_width="wrap_content"
