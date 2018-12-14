@@ -65,7 +65,7 @@ public class ResetPassoword extends AppCompatActivity {
                                                             RegistrationActivity.class));
                                                 }
                                             });
-                                    startActivity(intent);
+                                    
                                 }else{
 
                                     alertDialogBuilder.setTitle("Invalid Email");
