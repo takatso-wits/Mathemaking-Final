@@ -11,9 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Login"
-            android:noHistory="true"
-            >
+        <activity
+            android:name=".Login"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,8 +27,8 @@
             android:parentActivityName=".Login" />
         <activity
             android:name=".AlphieCombinations"
-            android:label="@string/chapter_one"
             android:configChanges="orientation|screenSize"
+            android:label="@string/chapter_one"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".Derivativish"
@@ -62,10 +62,10 @@
             android:name=".AbridgingCoincidences"
             android:label="@string/chapter_nine"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".AlphieNotes"
+        <activity
+            android:name=".AlphieNotes"
             android:label="Alphie Combinations Notes"
-            android:parentActivityName=".AlphieCombinations"
-            />
+            android:parentActivityName=".AlphieCombinations" />
         <activity android:name=".AlphieExamples" />
         <activity android:name=".AlphieOne" />
         <activity android:name=".AlphieTwo" />
@@ -89,10 +89,12 @@
         <activity
             android:name=".ResetPassoword"
             android:label="Reset Password"
-            android:parentActivityName=".Login"
-            >
-
-        </activity>
+            android:parentActivityName=".Login"></activity>
+        <activity
+            android:name=".SettingsActivty"
+            android:label="Settings"
+            android:parentActivityName=".MainActivity"
+            />
     </application>
 
 </manifest>

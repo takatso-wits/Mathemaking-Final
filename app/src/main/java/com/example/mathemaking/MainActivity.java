@@ -74,6 +74,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 MainActivity.this.finish();
                 startActivity(new Intent(getApplicationContext(), Login.class));
 
+            case R.id.menu_settings:
+                startActivity(new Intent(MainActivity.this, SettingsActivty.class));
+
             default:
                 return super.onOptionsItemSelected(item);
         }
