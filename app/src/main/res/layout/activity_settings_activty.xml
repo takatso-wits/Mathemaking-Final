@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#ffffff"
     tools:context=".SettingsActivty">
 
 
@@ -12,5 +13,94 @@
         android:id="@+id/switch1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textSize="20sp"
         android:text="Night Mode" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        >
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Laguage"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                />
+        </TableRow>
+        <TableRow
+            android:layout_gravity="center"
+            android:gravity="center"
+            >
+            <RadioGroup
+                android:background="#ff0000"
+
+                >
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="English"
+                    android:textColor="#ffff"
+                    />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sesotho"
+                    android:textColor="#ffff"
+
+                    />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="IsiZulu"
+                    android:textColor="#ffff"
+
+                    />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sepedi"
+                    android:textColor="#ffff"
+
+                    />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Code switching"
+                    android:textColor="#ffff"
+                    />
+            </RadioGroup>
+        </TableRow>
+    </TableLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:background="#00aaff"
+        android:textColor="#ffffff"
+        android:text="Update Profile"
+        android:textAllCaps="false"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:background="#00aaff"
+        android:textColor="#ffffff"
+        android:text="Verify Email"
+        android:textAllCaps="false"/>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="Save Changes"
+        android:background="#ff0000"
+        android:textColor="#ffffff"
+        />
+
 </LinearLayout>
