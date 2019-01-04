@@ -35,10 +35,12 @@
                android:layout_width="wrap_content"
                android:layout_height="wrap_content">
                <RadioButton
+                   android:id="@+id/radMale"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:text="Male"/>
                <RadioButton
+                   android:id="@+id/radFem"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:text="Female"/>
@@ -47,8 +49,10 @@
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
                android:id="@+id/date_of_birth"
-               android:hint="Date of Birth"/>
+               android:hint="Age"
+               android:inputType="number"/>
            <Button
+               android:id="@+id/btnSave"
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
                android:text="Save "/>
