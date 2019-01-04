@@ -1,5 +1,8 @@
 package com.example.mathemaking;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.provider.CalendarContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,6 +22,7 @@ public class Profile extends AppCompatActivity  implements View.OnClickListener 
     private RadioButton radMale, radFem;
     private Button btnSend;
     private DatabaseReference rootRef, mRoot;
+
 
 
     @Override
@@ -43,12 +47,24 @@ public class Profile extends AppCompatActivity  implements View.OnClickListener 
             String name  = etName.getText().toString().trim();
             String surname = etSurname.getText().toString().trim();
             int age = Integer.parseInt(etAge.getText().toString().trim());
+            final AlertDialog alertDialogBuilder = new AlertDialog.Builder(this).create();
             rootRef = FirebaseDatabase.getInstance().getReference();
             mRoot = rootRef.child("Profile");
 
             mRoot.push().setValue(name);
             mRoot.push().setValue(surname);
             mRoot.push().setValue(age);
+            alertDialogBuilder.setTitle("Profile Update");
+            alertDialogBuilder.setMessage("Profile has been updated.");
+
+            alertDialogBuilder.setButton(AlertDialog.BUTTON_POSITIVE,"OK", new DialogInterface.OnClickListener(){
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    dialogInterface.dismiss();
+                    startActivity(new Intent(Profile.this,SettingsActivty.class));
+                }
+            });
+            alertDialogBuilder.show();
 
         }
 

@@ -90,13 +90,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(new Intent(MainActivity.this, AlphieCombinations.class));
 
         if(view == btn2)
-            startActivity(new Intent(MainActivity.this, Derivativish.class));
+            startActivity(new Intent(MainActivity.this, DerivativeNotes.class));
 
         if(view == btn3)
-            startActivity(new Intent(MainActivity.this, DigitalTrading.class));
+            startActivity(new Intent(MainActivity.this, DigitalNotes.class));
 
         if(view == btn4)
-            startActivity(new Intent(MainActivity.this, SumsDigitalTrading.class));
+            startActivity(new Intent(MainActivity.this, SumDigitalNotes.class));
 
         if(view == btn5)
             startActivity(new Intent(MainActivity.this, Ncanyana.class));
