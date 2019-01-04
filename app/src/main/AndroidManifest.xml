@@ -89,12 +89,17 @@
         <activity
             android:name=".ResetPassoword"
             android:label="Reset Password"
-            android:parentActivityName=".Login"></activity>
+            android:parentActivityName=".Login" />
         <activity
             android:name=".SettingsActivty"
             android:label="Settings"
-            android:parentActivityName=".MainActivity"
-            />
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".Profile"
+            android:label="Update Profile"
+            android:parentActivityName=".SettingsActivty"
+            >
+
+        </activity>
     </application>
 
 </manifest>

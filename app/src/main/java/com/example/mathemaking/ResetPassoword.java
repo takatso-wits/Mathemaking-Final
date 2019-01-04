@@ -43,6 +43,11 @@ public class ResetPassoword extends AppCompatActivity {
             public void onClick(View view) {
                 userEmail = email.getText().toString().trim();
 
+                if(userEmail.isEmpty()){
+                    email.setError("Feild cannot be empty");
+                    return;
+                }
+
 
 
                 /*Reset the user password*/
@@ -51,35 +56,32 @@ public class ResetPassoword extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 Intent intent = new Intent(ResetPassoword.this, Login.class);
-                                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+                                final AlertDialog alertDialogBuilder = new AlertDialog.Builder(context).create();
                                 if(task.isSuccessful()){
-                                    Toast.makeText(getApplicationContext(),"Check your email",Toast.LENGTH_SHORT).show();
-                                    alertDialogBuilder.setTitle("Password Reset Success");
-                                    alertDialogBuilder
-                                            .setMessage(task.getException().getMessage())
-                                            .setCancelable(false)
-                                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                            alertDialogBuilder.setTitle("Password Reset");
+                                            alertDialogBuilder.setMessage("Email has been sent.");
+
+                                            alertDialogBuilder.setButton(AlertDialog.BUTTON_POSITIVE,"OK", new DialogInterface.OnClickListener(){
                                                 @Override
                                                 public void onClick(DialogInterface dialogInterface, int i) {
-                                                    startActivity(new Intent(ResetPassoword.this,
-                                                            RegistrationActivity.class));
+                                                    dialogInterface.dismiss();
+                                                    startActivity(new Intent(context,Login.class));
                                                 }
                                             });
+                                            alertDialogBuilder.show();
                                     
                                 }else{
+                                    alertDialogBuilder.setTitle("Password Reset");
+                                    alertDialogBuilder.setMessage("Email not found.");
 
-                                    alertDialogBuilder.setTitle("Invalid Email");
-                                    alertDialogBuilder
-                                            .setMessage(task.getException().getMessage())
-                                            .setCancelable(false)
-                                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                                @Override
-                                                public void onClick(DialogInterface dialogInterface, int i) {
-                                                    startActivity(new Intent(ResetPassoword.this,
-                                                            RegistrationActivity.class));
-                                                }
-                                            });
-
+                                    alertDialogBuilder.setButton(AlertDialog.BUTTON_POSITIVE,"Cancel", new DialogInterface.OnClickListener(){
+                                        @Override
+                                        public void onClick(DialogInterface dialogInterface, int i) {
+                                            dialogInterface.dismiss();
+                                            startActivity(new Intent(context,Login.class));
+                                        }
+                                    });
+                                    alertDialogBuilder.show();
                                 }
                             }
                         });

@@ -86,7 +86,6 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         }
         if(TextUtils.isEmpty(password)){
             etPassword.setError(passwordError);
-
             return;
         }
 

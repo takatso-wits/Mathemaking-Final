@@ -32,8 +32,8 @@
                 />
         </TableRow>
         <TableRow
-            android:layout_gravity="center"
-            android:gravity="center"
+            android:layout_gravity="left"
+            android:gravity="left"
             >
             <RadioGroup
                 android:background="#ff0000"
@@ -42,10 +42,12 @@
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:id="@+id/rad_english"
                     android:text="English"
                     android:textColor="#ffff"
                     />
                 <RadioButton
+                    android:id="@+id/rad_sotho"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Sesotho"
@@ -53,6 +55,7 @@
 
                     />
                 <RadioButton
+                    android:id="@+id/rad_zulu"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="IsiZulu"
@@ -60,6 +63,7 @@
 
                     />
                 <RadioButton
+                    android:id="@+id/rad_pedi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Sepedi"
@@ -67,6 +71,7 @@
 
                     />
                 <RadioButton
+                    android:id="@+id/rad_code"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Code switching"
@@ -77,6 +82,7 @@
     </TableLayout>
 
     <Button
+        android:id="@+id/btn_update"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_marginTop="20dp"
@@ -85,6 +91,7 @@
         android:text="Update Profile"
         android:textAllCaps="false"/>
     <Button
+        android:id="@+id/btn_verify_email"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_marginTop="20dp"
@@ -95,6 +102,7 @@
 
 
     <Button
+        android:id="@+id/btn_save_changes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAllCaps="false"
